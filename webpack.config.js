@@ -7,13 +7,19 @@ module.exports = {
  module: {
    rules: [
      {
-       test: /\.tsx?$/,
+       enforce: 'pre',
+       test: /\.js$/,
+       loader: "source-map-loader"
+     },
+     {
+       enforce: 'pre',
        loader: 'ts-loader',
        exclude: /node_modules/,
-     },
+     }
    ]
  },
  resolve: {
    extensions: [".tsx", ".ts", ".js"]
  },
+ devtool: 'inline-source-map',
 };
